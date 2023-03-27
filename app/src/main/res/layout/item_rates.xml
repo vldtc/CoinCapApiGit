@@ -19,49 +19,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
-            android:id="@+id/llAssetCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tvId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="start|center"
+                    android:text="Hello"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvSymbol"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="end"
-                    android:text="TextView"
-                    android:textSize="25sp" />
+                    android:layout_weight="1"
+                    android:gravity="start|center"
+                    android:text="Hellor" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="|"
-                    android:textSize="25sp" />
-
-
-                <TextView
-                    android:id="@+id/tvRateUsd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:gravity="start"
-                    android:text="TextView"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvRateUsd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="center|end"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Hello"
+                android:textSize="20sp" />
+
+
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

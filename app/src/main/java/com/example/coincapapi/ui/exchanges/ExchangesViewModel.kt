@@ -3,7 +3,6 @@ package com.example.coincapapi.ui.exchanges
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.coincapapi.data.model.assets.AssetsModel
 import com.example.coincapapi.data.model.exchanges.ExchangesModel
 import com.example.coincapapi.data.remote.ApiDetails
 import com.example.coincapapi.data.remote.ApiRequest

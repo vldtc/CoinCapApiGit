@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.coincapapi.data.model.markets.MarketsModel
 import com.example.coincapapi.databinding.FragmentMarketsBinding
 
@@ -38,8 +38,8 @@ class MarketsFragment : Fragment() {
 
     private fun setupUI(markets: MarketsModel) {
         binding.rvMarkets.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = MarketsAdapter(markets)
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = MarketsAdapter(markets?.data?.sortedBy { it?.baseSymbol })
 
         }
     }
