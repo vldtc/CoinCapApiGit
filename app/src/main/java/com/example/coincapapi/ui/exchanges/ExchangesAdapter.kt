@@ -9,6 +9,8 @@ import com.example.coincapapi.data.model.exchanges.ExchangesDataModel
 import com.example.coincapapi.data.model.exchanges.ExchangesModel
 import com.example.coincapapi.databinding.ItemAssetBinding
 import com.example.coincapapi.databinding.ItemExchangeBinding
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class ExchangesAdapter(val exchanges: List<ExchangesDataModel?>?) :
     RecyclerView.Adapter<ExchangesAdapter.ViewHolder>() {
@@ -21,9 +23,22 @@ class ExchangesAdapter(val exchanges: List<ExchangesDataModel?>?) :
         fun handleData(item: ExchangesDataModel?) {
             item?.let {
                 with(it) {
-                    binding.tvRank.text = "#$rank"
+                    val df = DecimalFormat("#.####")
+                    df.roundingMode = RoundingMode.DOWN
+                    var roundvolume = if(volumeUsd.isNullOrEmpty()){
+                        "Not available"
+                    }else{
+                        df.format(volumeUsd.toString().toDouble())
+                    }
+                    var roundpercentage = if(percentTotalVolume.isNullOrEmpty()){
+                        "Not available"
+                    }else{
+                        df.format(percentTotalVolume.toString().toDouble())
+                    }
+                    binding.tvRank.text = rank
                     binding.tvName.text = name
-                    binding.tvVolumeUsd.text = volumeUsd
+                    binding.tvVolumeUsd.text = "$roundvolume$"
+                    binding.tvPercent.text = "$roundpercentage%"
                 }
             }
         }

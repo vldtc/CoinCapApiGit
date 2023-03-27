@@ -19,7 +19,11 @@
         android:id="@+id/navigation_rates"
         android:name="com.example.coincapapi.ui.rates.RatesFragment"
         android:label="@string/title_rates"
-        tools:layout="@layout/fragment_rates" />
+        tools:layout="@layout/fragment_rates" >
+        <action
+            android:id="@+id/action_ratesDetails"
+            app:destination="@id/navigation_rates_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
@@ -48,6 +52,11 @@
     <fragment
         android:id="@+id/navigation_assets_details"
         android:name="com.example.coincapapi.ui.assets.assetsdetails.AssetsDetailsFragment"
-        android:label="fragment_assets_details"
+        android:label="@string/title_exchanges_detailed"
         tools:layout="@layout/fragment_assets_details" />
+    <fragment
+        android:id="@+id/navigation_rates_details"
+        android:name="com.example.coincapapi.ui.rates.ratesdetails.RatesDetailsFragment"
+        android:label="fragment_rates_details"
+        tools:layout="@layout/fragment_rates_details" />
 </navigation>

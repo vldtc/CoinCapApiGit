@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coincapapi.R
 import com.example.coincapapi.data.model.assets.AssetsDataModel
 import com.example.coincapapi.databinding.ItemAssetBinding
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class AssetsAdapter(val assets: List<AssetsDataModel>?) :
     RecyclerView.Adapter<AssetsAdapter.ViewHolder>() {
@@ -16,12 +18,19 @@ class AssetsAdapter(val assets: List<AssetsDataModel>?) :
         val binding = ItemAssetBinding.bind(view)
 
 
+
         fun handleData(item: AssetsDataModel?) {
             item?.let {
                 with(it) {
-                    binding.tvRank.text = "#$rank"
+                    //Function to format the decimal format
+                    val df = DecimalFormat("#.####")
+                    df.roundingMode = RoundingMode.DOWN
+                    var roundoff = df.format(priceUsd.toString().toDouble())
+
+                    binding.tvRank.text = rank
                     binding.tvName.text = name
-                    binding.tvPriceUsd.text = "Price($): $priceUsd"
+                    binding.tvSymbol.text = symbol
+                    binding.tvPriceUsd.text = "$roundoff$"
 
                 }
             }
@@ -52,6 +61,8 @@ class AssetsAdapter(val assets: List<AssetsDataModel>?) :
             }
         }
     }
+
+
 
 
 
