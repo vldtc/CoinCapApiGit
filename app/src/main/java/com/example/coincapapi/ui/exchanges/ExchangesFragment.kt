@@ -6,7 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coincapapi.R
+import com.example.coincapapi.data.model.exchanges.ExchangesDataModel
 import com.example.coincapapi.data.model.exchanges.ExchangesModel
 import com.example.coincapapi.databinding.FragmentExchangesBinding
 
@@ -37,12 +42,22 @@ class ExchangesFragment : Fragment() {
     }
 
     private fun setupUI(exchanges: ExchangesModel) {
+        val exchangesAdapter = ExchangesAdapter(exchanges.data as List<ExchangesDataModel>?)
         binding.rvExchanges.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = ExchangesAdapter(exchanges)
-
+            adapter = exchangesAdapter
         }
+        exchangesAdapter.onItemClick = {
+            val bundle=Bundle().apply{
+                putSerializable("ExchangesItem",it)
+            }
+            findNavController().navigate(
+                R.id.action_exchangeDetails,bundle
+            )
+        }
+
     }
+
 
 
 }

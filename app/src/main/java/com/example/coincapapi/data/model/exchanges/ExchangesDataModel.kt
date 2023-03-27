@@ -2,6 +2,7 @@ package com.example.coincapapi.data.model.exchanges
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ExchangesDataModel(
     @SerializedName("exchangeId")
@@ -22,4 +23,4 @@ data class ExchangesDataModel(
     val updated: Long? = 0,
     @SerializedName("volumeUsd")
     val volumeUsd: String? = ""
-)
+) : Serializable

@@ -26,10 +26,19 @@
         android:id="@+id/navigation_exchanges"
         android:name="com.example.coincapapi.ui.exchanges.ExchangesFragment"
         android:label="@string/title_exchanges"
-        tools:layout="@layout/fragment_exchanges" />
+        tools:layout="@layout/fragment_exchanges" >
+        <action
+            android:id="@+id/action_exchangeDetails"
+            app:destination="@id/navigation_exchanges_details" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_markets"
         android:name="com.example.coincapapi.ui.markets.MarketsFragment"
         android:label="@string/title_markets"
         tools:layout="@layout/fragment_markets" />
+    <fragment
+        android:id="@+id/navigation_exchanges_details"
+        android:name="com.example.coincapapi.ui.exchanges.exchangesdetails.ExchangeDetailsFragment"
+        android:label="@string/title_exchanges_detailed"
+        tools:layout="@layout/fragment_exchange_details" />
 </navigation>

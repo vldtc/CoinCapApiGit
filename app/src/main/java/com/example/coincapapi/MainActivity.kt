@@ -1,6 +1,7 @@
 package com.example.coincapapi
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -37,5 +38,38 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.navigation_home -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_assets -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_exchanges -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_markets -> {
+                    navView.visibility = View.VISIBLE
+                }
+                R.id.navigation_rates -> {
+                    navView.visibility = View.VISIBLE
+                }
+                else -> {
+                    navView.visibility = View.GONE
+                }
+            }
+//            if(navController.currentDestination?.id == R.layout.fragment_exchange_details) {
+//                navView.visibility = View.GONE
+//            } else {
+//                navView.visibility = View.VISIBLE
+//            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
