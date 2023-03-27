@@ -2,6 +2,7 @@ package com.example.coincapapi.data.model.assets
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class AssetsDataModel(
     @SerializedName("changePercent24Hr")
@@ -28,4 +29,4 @@ data class AssetsDataModel(
     val volumeUsd24Hr: String? = "",
     @SerializedName("vwap24Hr")
     val vwap24Hr: String? = ""
-)
+) : Serializable

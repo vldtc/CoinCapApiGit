@@ -9,7 +9,11 @@
         android:id="@+id/navigation_assets"
         android:name="com.example.coincapapi.ui.assets.AssetsFragment"
         android:label="@string/title_assets"
-        tools:layout="@layout/fragment_assets" />
+        tools:layout="@layout/fragment_assets" >
+        <action
+            android:id="@+id/action_assetsDetails"
+            app:destination="@id/navigation_assets_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_rates"
@@ -41,4 +45,9 @@
         android:name="com.example.coincapapi.ui.exchanges.exchangesdetails.ExchangeDetailsFragment"
         android:label="@string/title_exchanges_detailed"
         tools:layout="@layout/fragment_exchange_details" />
+    <fragment
+        android:id="@+id/navigation_assets_details"
+        android:name="com.example.coincapapi.ui.assets.assetsdetails.AssetsDetailsFragment"
+        android:label="fragment_assets_details"
+        tools:layout="@layout/fragment_assets_details" />
 </navigation>
